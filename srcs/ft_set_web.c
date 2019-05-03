@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:57:03 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/01 19:11:31 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/03 14:36:19 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_screen	iso(t_map *map)
 	screen.x = ((previous_x - previous_y) * cos(0.523599) * map->size
 	+ map->mvx);
 	screen.y = ((previous_x + previous_y) * sin(0.523599) * map->size
-	+ map->mvy) - map->z;
+	+ map->mvy) - (map->z * map->mvz);
 	return (screen);
 }
 
@@ -51,7 +51,7 @@ t_screen	paral(t_map *map)
 	screen.x = ((previous_x - previous_y) * map->size
 	+ map->mvx);
 	screen.y = ((previous_x + previous_y) * map->size
-	+ map->mvy) - map->z;
+	+ map->mvy) - (map->z * map->mvz);
 	return (screen);
 }
 

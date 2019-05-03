@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:43:07 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/01 18:33:39 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/03 13:54:19 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		checkifcolor(char *str)
 	len = ft_strlen(str);
 	while (i++ < len - 1)
 	{
+		if(str[i] == '-')
+			i++;
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
 	}

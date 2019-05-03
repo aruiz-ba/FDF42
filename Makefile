@@ -6,47 +6,65 @@
 #    By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/28 12:02:51 by aruiz-ba          #+#    #+#              #
-#    Updated: 2019/04/29 18:28:02 by aruiz-ba         ###   ########.fr        #
+#    Updated: 2019/05/03 15:51:29 by aruiz-ba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = FDF
 
-# directories
-SRC_DIR	:= ./srcs
-INC_DIR	:= ./includes
-OBJ_DIR	:= ./obj
-LIB_DIR	:= ./lib
+SRC		= main.c\
+		ft_put_line.c\
+		ft_set_web.c\
+		ft_parse.c\
+		ft_read.c\
+		image.c\
+		center.c\
+		inputparse.c\
+		stwebwhile.c\
 
-SRC = ./srcs/main.c\
-		./srcs/ft_put_line.c\
-		./srcs/ft_set_web.c\
-		./srcs/ft_parse.c\
-		./srcs/ft_read.c\
-		./srcs/image.c\
-		./srcs/center.c\
-		./srcs/inputparse.c\
-		./srcs/stwebwhile.c\
-		./Libft/libft.a
+OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
-$(NAME): $(SRC)
-	@make -C libft/
-	gcc -g -fsanitize=address -I /usr/local/include $(SRC) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -I includes 
-	@echo "_________________"
-	@echo "                 "
-	@echo "    SUCCESS!     "
-	@echo "     FDF      "
-	@echo "    was created  "
-	@echo "_________________"
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
 
+MLX		= ./miniLibX
+MLX_LIB	= $(addprefix $(MLX),mlx.a)
+MLX_INC	= -I ./miniLibX
+MLX_LNK	= -L ./miniLibX -l mlx -framework OpenGL -framework AppKit
 
-all: $(NAME)
+FT		= ./libft/
+FT_LIB	= $(addprefix $(FT),libft.a)
+FT_INC	= -I ./libft
+FT_LNK	= -L ./libft -l ft
+
+SCRDIR 	= ./src/
+INCDIR	= ./includes/
+OBJDIR	= ./obj/
+
+all: obj $(FT_LIB) $(MLX_LIB) $(NAME)
+
+obj:
+		mkdir -p $(OBJDIR)
+
+$(OBJDIR)%.o:$(SRCDIR)%.c
+		$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -I $(INCDIR) -O $@ -c $<
+
+$(FT_LIB):
+		make -C $(FT)
+
+$(MLX_LIB):
+		make -C $(MLX)
+
+$(NAME): $(OBJ)
+		$(CC) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
 
 clean:
-	@make -C libft/ clean
+		rm -rf $(OBJDIR)
+		make -C $(FT) clean
+		make -C $(MLX) clean
 
-fclean:
-	@rm -f $(NAME)
-	@make fclean -C libft/
+fclean: clean
+		rm -rf $(NAME)
+		make -C $(FT) fclean
 
-re: fclean all $(NAME)
+re: fclean all

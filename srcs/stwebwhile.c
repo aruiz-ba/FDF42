@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 18:27:35 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/01 19:01:00 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/03 11:47:43 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ void	stww(t_list *wolf, t_setweb *stw, t_map *map, t_screen (*f)(t_map *map))
 			if(checkifcolor(stw->array[map->x]) == 0)
 			{
 				map->color = setcolor(stw->array[map->x], &map->z);
-				map->z = map->z * map->mvz;
 			}
 			else
 			{
 				map->color = 0xa3ff03;
-				map->z = ft_atoi(stw->array[map->x]) * map->mvz;
+				map->z = ft_atoi(stw->array[map->x]);
 			}
 			if (screen1.x != -1 && screen1.y != -1)
 			{
@@ -69,11 +68,10 @@ void	stww2(t_list *wolf, t_setweb *stw, t_map *map, t_screen (*f)(t_map *map))
 		if(checkifcolor(stw->array[map->x]) == 0)
 		{
 				map->color = setcolor(stw->array[map->x], &map->z);
-				map->z = map->z * map->mvz;
 		}
 		else
 		{
-			map->z = ft_atoi(stw->array[map->x]) * map->mvz;
+			map->z = ft_atoi(stw->array[map->x]);
 			map->color = 0xa3ff03;
 		}
 		if (screen1.x != -1 && screen1.y != -1)

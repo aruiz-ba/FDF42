@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 14:23:24 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/01 19:12:21 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/03 14:25:51 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@
 # define WIN_WIDTH	1280
 # define WIN_HEIGHT	720
 # define ESC		53
-# define UP			126
-# define DOWN		125
-# define RIGHT		124
-# define LEFT		123
-# define ZOOMIN		69
-# define ZOOMOUT	78
+# define UP			13
+# define DOWN		1
+# define RIGHT		2
+# define LEFT		0
+# define ZOOMIN		35
+# define ZOOMOUT	31
 # define Z			6
 # define X			7
 # define M			46
+# define N			45
 typedef struct	s_screen
 {
 	int			x;
@@ -79,6 +80,7 @@ typedef struct	s_mlx
 	t_image	*image;
 	t_list	*mp;
 	int		k;
+	t_screen (*f)(t_map *map);
 }				t_mlx;
 
 typedef struct	s_bresenham
