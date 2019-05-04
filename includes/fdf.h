@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 14:23:24 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/03 14:25:51 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/04 20:24:28 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 #include "../Libft/includes/libft.h"
-#include <stdio.h>	//remember to remove me
 #include <math.h>
 # define WIN_WIDTH	1280
 # define WIN_HEIGHT	720
