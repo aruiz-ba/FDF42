@@ -6,14 +6,14 @@
 #    By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/28 12:02:51 by aruiz-ba          #+#    #+#              #
-#    Updated: 2019/05/13 14:27:18 by aruiz-ba         ###   ########.fr        #
+#    Updated: 2019/05/26 17:58:44 by aruiz-ba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = FDF
 
 SRC	= $(addprefix src/,main.c ft_put_line.c ft_set_web.c ft_parse.c ft_read.c \
-	image.c center.c inputparse.c stwebwhile.c keyboard.c)
+	image.c center.c inputparse.c stwebwhile.c keyboard.c sub_stwebwhile.c)
 
 OBJ = $(SRC:.c=.o)
 

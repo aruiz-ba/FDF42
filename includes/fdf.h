@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 14:23:24 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/13 15:45:57 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/26 18:23:05 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,7 @@ void				put_text(t_mlx *mlx);
 int					ifstw(t_setweb *stw, t_map *map, t_sn *sn,
 t_screen (*f)(t_map *map));
 int					digitlen(char **str);
+int					sub_stww2(t_setweb *stw, t_map *map);
+int					sub_stww(t_map *map, t_setweb *stw, t_sn *sn,
+t_screen (*f)(t_map *map));
 #endif
