@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:56:32 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/27 16:36:59 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/27 16:58:54 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,21 @@ t_list	*sub_parse_file(int ret, int *dt, t_list *node, t_list *head)
 	return (head);
 }
 
+void	set_parse_var(t_parse *prs, int *ln, char *root)
+{
+	prs->ret = 0;
+	*ln = 0;
+	prs->fd = open(root, O_RDONLY);
+}
+
 t_list	*ft_parse_file(char *root, int *ln, int *dt)
 {
 	t_parse	prs;
 	t_list	*head;
 	t_list	*node;
 
-	prs.ret = 0;
 	head = NULL;
-	*ln = 0;
-	prs.fd = open(root, O_RDONLY);
+	set_parse_var(&prs, ln, root);
 	while ((prs.ret = get_next_line(prs.fd, &prs.buff)) > 0)
 	{
 		prs.wrds = ft_strlen(prs.buff);

@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 16:02:24 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/27 15:22:58 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/27 17:01:03 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		main(int argc, char **argv)
 	map = *ft_setsize(&map, main.ln, main.dt);
 	main.x = ((setdensity(mp->content_size) * mp->content_size * 2) + 300);
 	map.z = map.size;
-	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "FDF");
+	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "fdf");
 	if (setimage(&mlx, &map, mp) == -1)
 		return (error(2));
 	put_text(&mlx);
