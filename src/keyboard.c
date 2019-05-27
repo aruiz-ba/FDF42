@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 14:09:49 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/06 14:48:44 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/27 14:45:51 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,55 +42,29 @@ void	zoom(int key, t_mlx *mlx)
 	}
 }
 
-void	deal_key2(int key, t_mlx *mlx)
+int		deal_key(int key, t_mlx *mlx)
 {
 	zoom(key, mlx);
 	if (key == Z)
-	{
 		mlx->map->mvz++;
-		setall(mlx, mlx->f);
-	}
 	if (key == X)
-	{
 		mlx->map->mvz--;
-		setall(mlx, mlx->f);
-	}
 	if (key == M)
-	{
 		mlx->f = paral;
-		setall(mlx, mlx->f);
-	}
 	if (key == N)
-	{
 		mlx->f = iso;
-		setall(mlx, mlx->f);
-	}
-}
-
-int		deal_key(int key, t_mlx *mlx)
-{
 	if (key == ESC)
 		exit(0);
 	if (key == UP)
-	{
 		mlx->map->mvy -= 10;
-		setall(mlx, mlx->f);
-	}
 	if (key == DOWN)
-	{
 		mlx->map->mvy += 10;
-		setall(mlx, mlx->f);
-	}
 	if (key == RIGHT)
-	{
 		mlx->map->mvx += 10;
-		setall(mlx, mlx->f);
-	}
 	if (key == LEFT)
-	{
 		mlx->map->mvx -= 10;
+	if (key == Z || key == X || key == M || key == N || key == UP
+		|| key == DOWN || key == RIGHT || key == LEFT)
 		setall(mlx, mlx->f);
-	}
-	deal_key2(key, mlx);
 	return (1);
 }

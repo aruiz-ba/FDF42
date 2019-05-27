@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:56:32 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/09 19:09:35 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/27 16:36:59 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ t_list	*ft_parse_file(char *root, int *ln, int *dt)
 	t_parse	prs;
 	t_list	*head;
 	t_list	*node;
-	int		ret;
 
-	ret = 0;
+	prs.ret = 0;
 	head = NULL;
 	*ln = 0;
 	prs.fd = open(root, O_RDONLY);
-	while ((ret = get_next_line(prs.fd, &prs.buff)) > 0)
+	while ((prs.ret = get_next_line(prs.fd, &prs.buff)) > 0)
 	{
 		prs.wrds = ft_strlen(prs.buff);
 		node = ft_lstnew(prs.buff, prs.wrds + 1);
-		node->content_size = ft_wordcount(prs.buff, ' ');
+		if ((node->content_size = ft_wordcount(prs.buff, ' ')) < 2)
+			error(3);
 		if (head)
 			ft_lstadd(&head, node);
 		else
@@ -77,7 +77,9 @@ t_list	*ft_parse_file(char *root, int *ln, int *dt)
 		*ln += 1;
 		free(prs.buff);
 	}
-	if ((head = sub_parse_file(ret, dt, node, head)) == NULL)
+	if (*ln < 2)
+		error(3);
+	if ((head = sub_parse_file(prs.ret, dt, node, head)) == NULL)
 		return (NULL);
 	return (head);
 }

@@ -6,11 +6,11 @@
 #    By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/28 12:02:51 by aruiz-ba          #+#    #+#              #
-#    Updated: 2019/05/26 17:58:44 by aruiz-ba         ###   ########.fr        #
+#    Updated: 2019/05/27 16:39:05 by aruiz-ba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FDF
+NAME = fdf
 
 SRC	= $(addprefix src/,main.c ft_put_line.c ft_set_web.c ft_parse.c ft_read.c \
 	image.c center.c inputparse.c stwebwhile.c keyboard.c sub_stwebwhile.c)
@@ -20,7 +20,7 @@ OBJ = $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-MLX_LNK	= -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -fsanitize=address -g
+MLX_LNK	= -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -g
 
 FT		= ./Libft/
 FT_LIB	= $(addprefix $(FT),libft.a)

@@ -6,7 +6,7 @@
 /*   By: aruiz-ba <aruiz-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 14:23:24 by aruiz-ba          #+#    #+#             */
-/*   Updated: 2019/05/26 18:23:05 by aruiz-ba         ###   ########.fr       */
+/*   Updated: 2019/05/27 16:27:51 by aruiz-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ typedef struct		s_parse
 	int				fd;
 	int				wrds;
 	char			*buff;
+	int				ret;
 }					t_parse;
 
 typedef struct		s_sn
@@ -143,7 +144,6 @@ t_screen			iso(t_map *map);
 char				*intrim(char const *s);
 t_screen			paral(t_map *map);
 int					deal_key(int key, t_mlx *mlx);
-void				deal_key2(int key, t_mlx *mlx);
 void				put_text(t_mlx *mlx);
 int					ifstw(t_setweb *stw, t_map *map, t_sn *sn,
 t_screen (*f)(t_map *map));
@@ -151,4 +151,5 @@ int					digitlen(char **str);
 int					sub_stww2(t_setweb *stw, t_map *map);
 int					sub_stww(t_map *map, t_setweb *stw, t_sn *sn,
 t_screen (*f)(t_map *map));
+int					error(int i);
 #endif
